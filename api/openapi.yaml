@@ -1,0 +1,140 @@
+openapi: 3.0.3
+info:
+  title: WalkLists API
+  description: |
+    Field intelligence API for managing walk lists, contacts, tasks, canvassers, and data enrichment.
+
+    ## Authentication
+    All requests require a Bearer token. Obtain one via:
+    - **Web login:** `POST /api/token` with email + password
+    - **SSO:** Authenticate via your organization's Identity Provider
+
+    Include the token in every request:
+    ```
+    Authorization: Bearer YOUR_TOKEN
+    ```
+
+    ## Base URL
+    ```
+    https://walklists.com/api
+    ```
+
+    ## Rate Limits
+    - Standard: 60 requests/minute
+    - Enterprise: 300 requests/minute
+
+    Check `X-RateLimit-Remaining` response header for current usage.
+  version: 1.0.0
+  contact:
+    name: WalkLists Support
+    url: https://walklists.com/contact
+    email: support@walklists.com
+
+servers:
+  - url: https://walklists.com/api
+    description: Production
+
+security:
+  - BearerAuth: []
+
+tags:
+  - name: Authentication
+    description: Login, token management, and SSO
+  - name: Walk Lists
+    description: Create and manage walk lists (task lists)
+  - name: Contacts
+    description: Manage contacts within walk lists
+  - name: Canvassers
+    description: Team member management and assignment
+  - name: Tasks
+    description: Task status and progress tracking
+
+paths:
+  /token:
+    post:
+      tags:
+        - Authentication
+      summary: Get API token
+      description: Exchange email and password for a Bearer token.
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                  format: email
+                  example: user@company.com
+                password:
+                  type: string
+                  example: your-password
+      responses:
+        '200':
+          description: Token returned
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  token:
+                    type: string
+                    example: 1|abc123...
+        '401':
+          description: Invalid credentials
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /user:
+    post:
+      tags:
+        - Authentication
+      summary: Get current user
+      description: Returns the authenticated user's profile.
+      responses:
+        '200':
+          description: User profile
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  first_name:
+                    type: string
+                  last_name:
+                    type: string
+                  email:
+                    type: string
+                  admin:
+                    type: boolean
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: Sanctum
+
+  schemas:
+    Error:
+      type: object
+      properties:
+        status:
+          type: string
+          example: fail
+        msg:
+          type: string
+          example: The provided credentials are incorrect.
