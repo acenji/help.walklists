@@ -56,23 +56,98 @@
     </div>
     <noscript>
         <style>.api-loading { display: none !important; }</style>
-        <div style="max-width: 800px; margin: 40px auto; padding: 0 20px; font-family: sans-serif;">
-            <h1>WalkLists API Documentation</h1>
-            <p>Field intelligence API for walk lists, contacts, tasks, and data enrichment.</p>
-            <p>Enable JavaScript to view the full interactive API documentation.</p>
-            <p><a href="https://walklists.com">Back to WalkLists</a></p>
-        </div>
     </noscript>
+    <!--
+        SEO-friendly content baseline so crawlers (which don't execute the
+        Scalar SPA) index a meaningful page instead of a 40-word loader.
+        Sighted users see the api-loading overlay covering it during boot;
+        once Scalar mounts, the JS observer below removes both the loader
+        AND this main element so the API reference UI takes over cleanly.
+        Flagged by Ahrefs SEO audit 2026-04-26 (W4 'Low word count').
+    -->
+    <main id="api-seo-fallback" style="max-width: 860px; margin: 40px auto; padding: 0 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1e293b; line-height: 1.6;">
+        <h1 style="font-size: 32px; margin-bottom: 8px; color: #0f172a;">WalkLists API Documentation</h1>
+        <p style="font-size: 17px; color: #475569; margin-top: 0;">
+            REST API for door-to-door canvassing operations &mdash; programmatic access to walk lists, contacts,
+            field tasks, voter and consumer data enrichment, and route optimization. Authenticate with Sanctum
+            bearer tokens; responses are JSON over HTTPS.
+        </p>
+
+        <h2 style="font-size: 22px; margin-top: 32px;">What the API covers</h2>
+        <p>
+            The WalkLists API exposes every primitive a campaign manager, sales operations lead, or integration
+            partner needs to wire WalkLists into their broader stack &mdash; CRM, dialer, voter file vendor, or
+            custom internal tooling.
+        </p>
+        <ul>
+            <li><strong>Contacts</strong> &mdash; create, read, search, and segment voter or prospect records.
+                Supports geocoded address, contact metadata, and per-contact custom fields.</li>
+            <li><strong>Lists</strong> &mdash; static and dynamic contact lists. Filter by district, party,
+                age band, support score, or any custom attribute.</li>
+            <li><strong>Walk Lists / Field Maps</strong> &mdash; mint route-optimized PDF walk lists or shareable
+                digital field maps for the mobile rep app.</li>
+            <li><strong>Tasks &amp; Activities</strong> &mdash; canvasser disposition write-back: log status
+                (yes / no / not home / spoken with), notes, and survey responses against any contact.</li>
+            <li><strong>Data Enrichment</strong> &mdash; on-demand voter file pull, address validation and
+                geocoding through the CSV2GEO data layer.</li>
+            <li><strong>Webhooks</strong> &mdash; push status changes, completed routes, and survey responses
+                into your downstream systems in real time.</li>
+        </ul>
+
+        <h2 style="font-size: 22px; margin-top: 32px;">Authentication</h2>
+        <p>
+            Every API request requires a Bearer token. Generate one from
+            <a href="https://walklists.com/account/api-tokens">/account/api-tokens</a>
+            (admin permission required). Tokens are scoped per-organization and can be revoked any time. Send
+            them as <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">Authorization: Bearer YOUR_TOKEN</code>
+            on every request.
+        </p>
+
+        <h2 style="font-size: 22px; margin-top: 32px;">Base URL &amp; conventions</h2>
+        <p>
+            Production base: <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">https://walklists.com/api</code>.
+            All endpoints accept and return JSON. Pagination follows the standard <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">page</code>
+            and <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">per_page</code> query parameters.
+            Errors return RFC 7807 problem-details JSON with a stable <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">type</code>
+            field for programmatic handling.
+        </p>
+
+        <h2 style="font-size: 22px; margin-top: 32px;">Rate limits</h2>
+        <p>
+            60 requests per minute per token by default; bursts up to 120. Rate-limit headers
+            (<code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">X-RateLimit-Remaining</code>)
+            ride on every response. Higher limits available on Team and Enterprise plans &mdash; contact us
+            via the <a href="https://walklists.com/contact">contact form</a>.
+        </p>
+
+        <h2 style="font-size: 22px; margin-top: 32px;">Get started</h2>
+        <p>
+            Browse the interactive endpoint reference above (loads from
+            <a href="/api/openapi.yaml">openapi.yaml</a>) once JavaScript is enabled. Or pull the
+            <a href="/api/openapi.yaml">OpenAPI 3.1 spec</a> directly to scaffold a client in your language
+            of choice.
+        </p>
+        <p>
+            Need help? See the <a href="https://help.walklists.com">WalkLists Help Center</a> for guides,
+            or <a href="https://walklists.com/register">sign up free</a> to start canvassing today.
+        </p>
+    </main>
     <script id="api-reference" data-url="/api/openapi.yaml"></script>
     <script src="https://cdn.jsdelivr.net/npm/@scalar/api-reference@1.44.18" defer></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         var l = document.getElementById('api-loading');
-        if (!l) return;
+        var s = document.getElementById('api-seo-fallback');
+        if (!l && !s) return;
         var o = new MutationObserver(function() {
             if (!document.querySelector('.scalar-app')) return;
-            l.classList.add('fade-out');
-            setTimeout(function() { l.remove(); }, 400);
+            if (l) {
+                l.classList.add('fade-out');
+                setTimeout(function() { l.remove(); }, 400);
+            }
+            // Drop the SEO fallback once the interactive reference is up
+            // so users don't see both stacked.
+            if (s) s.remove();
             o.disconnect();
         });
         o.observe(document.body, { childList: true, subtree: true });
