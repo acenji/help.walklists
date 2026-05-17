@@ -3,20 +3,34 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Team Management | WalkLists Help</title>
-    <meta name="description" content="Manage canvasser teams in WalkLists: invite by email, assign territories on the map, set roles and permissions, and track per-rep performance live.">
+    <title>Team Management — Roles &amp; Permissions | WalkLists Help</title>
+    <meta name="description" content="Invite admins, managers, and canvassers to your WalkLists organization. Three-tier roles, scoped assignments at the campaign and walklist level, and anonymous share links for political volunteers.">
     <link rel="canonical" href="https://help.walklists.com/guides/team-management.html">
     <link rel="stylesheet" href="/css/style.css">
-    <meta property="og:title" content="Team Management | WalkLists Help">
-    <meta property="og:description" content="Manage canvasser teams in WalkLists: invite by email, assign territories on the map, set roles and permissions, and track per-rep performance live.">
+    <meta property="og:title" content="Team Management — Roles &amp; Permissions | WalkLists Help">
+    <meta property="og:description" content="Three-tier role model (Admin, Manager, Canvasser), scoped assignments, and the anonymous share-link flow for political volunteers.">
     <meta property="og:url" content="https://help.walklists.com/guides/team-management.html">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="WalkLists">
     <meta property="og:image" content="https://walklists.com/images/walklists.webp">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Team Management | WalkLists Help">
-    <meta name="twitter:description" content="Manage canvasser teams in WalkLists: invite by email, assign territories on the map, set roles and permissions, and track per-rep performance live.">
+    <meta name="twitter:title" content="Team Management — Roles &amp; Permissions | WalkLists Help">
+    <meta name="twitter:description" content="Three-tier role model (Admin, Manager, Canvasser), scoped assignments, and the anonymous share-link flow for political volunteers.">
     <meta name="twitter:image" content="https://walklists.com/images/walklists.webp">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "Set up your WalkLists team",
+      "description": "Invite admins, scoped managers, and door-knockers to your WalkLists organization.",
+      "step": [
+        {"@type": "HowToStep", "name": "Invite an admin", "text": "Open Settings → Team and click Invite admin. Type their email and send."},
+        {"@type": "HowToStep", "name": "Assign a manager to a campaign", "text": "Open the campaign → Team tab → Invite manager. They get access to that campaign only."},
+        {"@type": "HowToStep", "name": "Assign canvassers to a walklist", "text": "Open the walklist's Generate page → Assignees tab → Invite canvasser. They see only that walklist."},
+        {"@type": "HowToStep", "name": "Share with anonymous volunteers", "text": "Open the walklist's Assignees tab and copy the share link. Hand it to anyone — no account required."}
+      ]
+    }
+    </script>
 </head>
 <body>
     <nav class="top-nav">
@@ -50,7 +64,7 @@
             <a href="/guides/team-management.html" class="active">Team Management</a>
         </div>
         <div class="sidebar-section">
-            <h3>Data & Integrations</h3>
+            <h3>Data &amp; Integrations</h3>
             <a href="/guides/csv-import.html">CSV Import</a>
             <a href="/guides/data-enrichment.html">Data Enrichment</a>
             <a href="/guides/crm-integration.html">CRM Integration</a>
@@ -58,7 +72,7 @@
         <div class="sidebar-section">
             <h3>Enterprise</h3>
             <a href="/guides/sso-setup.html">SSO Setup (SAML)</a>
-            <a href="/guides/billing.html">Billing & Plans</a>
+            <a href="/guides/billing.html">Billing &amp; Plans</a>
         </div>
         <div class="sidebar-section">
             <h3>API</h3>
@@ -69,13 +83,212 @@
     <main class="main-content">
         <div class="content-area">
             <h1>Team Management</h1>
-            <p class="subtitle">Invite canvassers, assign territories, and track team performance.</p>
+            <p class="subtitle">Three roles, three places to assign people, one share link for everyone else.</p>
+
+            <h2>The three roles</h2>
+            <p>
+                WalkLists has three fixed roles. Where you can act is determined by where you've
+                been assigned. An <strong>Admin</strong> sees everything in the organization, a
+                <strong>Manager</strong> sees only the campaigns they've been assigned, and a
+                <strong>Canvasser</strong> sees only the walklists they've been assigned.
+            </p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Role</th>
+                        <th>Scope</th>
+                        <th>What they can do</th>
+                        <th>Typical ratio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Admin</strong></td>
+                        <td>The whole organization</td>
+                        <td>Billing, settings, invite anyone, see every campaign and walklist</td>
+                        <td>1–3 per org</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Manager</strong></td>
+                        <td>Specific campaigns only</td>
+                        <td>Admin powers bounded to those campaigns — generate field maps, assign canvassers, see reports</td>
+                        <td>~5 per Admin</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Canvasser</strong></td>
+                        <td>Specific walklists only</td>
+                        <td>Knock doors, log status, add notes — on assigned walklists only</td>
+                        <td>~10–50 per Manager</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Anonymous</strong></td>
+                        <td>One walklist via share link</td>
+                        <td>Same as Canvasser, but with no account. Token in the URL is the auth.</td>
+                        <td>As many as you hand the link to</td>
+                    </tr>
+                </tbody>
+            </table>
 
             <div class="callout-info">
-                <p>This guide is being written. Check back soon or <a href="https://walklists.com/contact">contact us</a> at walklists.com/contact for help.</p>
+                <p>
+                    <strong>Org membership alone is "login with nothing to do."</strong>
+                    A new Manager invited at the org level sees no campaigns until an Admin assigns
+                    them on a Campaign Team tab. A new Canvasser sees no walklists until they're
+                    assigned on a Walklist Assignees tab.
+                </p>
             </div>
 
-            <p><a href="/">&larr; Back to Help Center home</a></p>
+            <h2>Three places to assign people</h2>
+            <p>
+                Each role gets assigned at the level it operates on. The UI mirrors this exactly —
+                you assign someone on the page for the thing they'll work on.
+            </p>
+
+            <h3>1. Settings → Team (org level)</h3>
+            <p>
+                <em>Admins only.</em> Open <strong>Settings</strong> from the sidebar, then the
+                <strong>Team</strong> tab. You'll see every member of your organization with their
+                role pill — Owner, Admin, or Member. Click <strong>+ Invite admin</strong> to add
+                a new Admin: they'll get an email with a link to set their password and sign in.
+            </p>
+            <p>
+                You can also remove people here. Removing someone wipes all their downstream
+                assignments — they lose access to every campaign and walklist in your org.
+                You can't remove yourself, and you can't remove the Owner (the original creator
+                of the org).
+            </p>
+
+            <h3>2. Campaign → Team tab (Manager assignments)</h3>
+            <p>
+                <em>Admins only.</em> Open any campaign and click the <strong>Team</strong> tab.
+                You'll see two sections:
+            </p>
+            <ul>
+                <li><strong>Managers.</strong> Click <strong>+ Invite manager</strong>, type an email, send. They'll get an email pointing to this campaign and a sign-in link.</li>
+                <li><strong>Canvassers.</strong> Read-only roster of every Canvasser assigned to any walklist under this campaign. Useful as a roll-up; the actual assignment happens on each walklist's Assignees tab.</li>
+            </ul>
+            <p>
+                Managers who are already org members can be assigned to multiple campaigns. Their
+                view of WalkLists is filtered to just those campaigns — they won't even see other
+                campaigns exist.
+            </p>
+
+            <h3>3. Walklist → Assignees tab (Canvasser assignments)</h3>
+            <p>
+                <em>Admins and Managers of that campaign.</em> Open the walklist's Generate page
+                — same place you build the field map or PDF — and click the <strong>Assignees</strong>
+                tab next to Route / Layout / Footer. Two sections:
+            </p>
+            <ul>
+                <li><strong>Canvassers on this walklist.</strong> Invite by email, remove with the × button. Each one gets an email pointing at this walklist.</li>
+                <li><strong>Anonymous share link.</strong> Once the walklist is generated, a share URL appears here. Copy it and hand it to anyone who'll knock — no account, no invite, no email. The token in the URL is the auth.</li>
+            </ul>
+
+            <h2>The anonymous share-link path</h2>
+            <p>
+                Political campaigns rely on volunteers who won't bother making an account.
+                WalkLists has a special path for them: every generated walklist gets a
+                share URL like <code>https://walklists.com/w/abc123…</code> that opens
+                straight into the canvasser view in any browser. No login, no app install.
+            </p>
+            <p>
+                This is the default for political organizations. For sales, insurance, and
+                roofing — where you want named, tracked reps — provisioned Canvasser accounts
+                are the default and the share link sits as a backup.
+            </p>
+            <p>
+                You can use both at the same time. Provisioned reps see their progress in their
+                dashboard; anonymous link-clickers contribute knock results to the same walklist
+                without any identity attached.
+            </p>
+
+            <h2>Per-vertical role names</h2>
+            <p>
+                The underlying model is always Admin / Manager / Canvasser. The labels in the
+                UI change to match your vertical:
+            </p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Vertical</th>
+                        <th>Admin reads as</th>
+                        <th>Manager reads as</th>
+                        <th>Canvasser reads as</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Political</td><td>Campaign Manager / ED</td><td>Field Director</td><td>Volunteer / Canvasser</td></tr>
+                    <tr><td>Sales</td><td>Sales VP / Owner</td><td>Sales Manager</td><td>Outside Sales Rep</td></tr>
+                    <tr><td>Roofing / Storm</td><td>Owner</td><td>Crew Chief / Sales Lead</td><td>Door-Knocker / Estimator</td></tr>
+                    <tr><td>Insurance D2D</td><td>Agency Principal</td><td>Team Lead</td><td>Producer</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Common scenarios</h2>
+
+            <h3>Onboarding a new field director (political)</h3>
+            <ol>
+                <li>Open <strong>Settings → Team</strong>, click <strong>+ Invite admin</strong>, type their email. (Skip if they shouldn't see billing or every campaign — go directly to step 3 instead.)</li>
+                <li>They get an email, set their password, sign in. They land on an empty dashboard — they're an org member with no scope yet.</li>
+                <li>Open the relevant campaign, click the <strong>Team</strong> tab, click <strong>+ Invite manager</strong>, use the same email. They'll now see this campaign and can generate walklists from it.</li>
+                <li>Each walklist they generate, they assign canvassers to via the <strong>Assignees</strong> tab.</li>
+            </ol>
+
+            <h3>Rotating a volunteer onto a new turf (political)</h3>
+            <ol>
+                <li>Open the walklist they're leaving, Assignees tab, click <strong>×</strong> next to their row.</li>
+                <li>Open the walklist they're joining, Assignees tab, click <strong>+ Invite canvasser</strong>, type their email. If they already have an account, they're attached instantly with no second invite email.</li>
+            </ol>
+
+            <h3>Handing a walklist to a stranger</h3>
+            <ol>
+                <li>Generate the walklist as normal.</li>
+                <li>Open the Assignees tab, find the <strong>Anonymous share link</strong> section.</li>
+                <li>Click <strong>Copy</strong> and paste the URL into a text message, Signal, WhatsApp, or whatever they read. They tap it, the canvasser view opens, they start knocking.</li>
+            </ol>
+
+            <h2>FAQ</h2>
+
+            <h3>What's the difference between Admin and Owner?</h3>
+            <p>
+                Owner is the person who originally created the organization. Functionally identical
+                to Admin today. The distinction matters for a future "transfer ownership" flow that
+                will let you hand the org to someone else if you leave.
+            </p>
+
+            <h3>Can a Manager invite another Manager?</h3>
+            <p>
+                Not today. Only Admins can invite Managers. If a Manager needs to grow their team,
+                they ask an Admin. We may relax this for managers-of-managers in a future iteration.
+            </p>
+
+            <h3>What happens to a Canvasser's knock data when I remove them?</h3>
+            <p>
+                The knock results stay on the walklist — they're attributed to the walklist, not
+                to the canvasser identity. The canvasser just loses the ability to add new
+                knocks. Their personal account remains in the org unless an Admin also removes
+                them at the org level.
+            </p>
+
+            <h3>Can I rename "Manager" to "Field Director" for my org?</h3>
+            <p>
+                Yes — that's exactly what the per-vertical labels do. Set your organization's
+                vertical (Political / Sales / Roofing / Insurance) under <strong>Settings →
+                Company</strong> and the UI re-labels everywhere. Custom labels per org are on
+                the roadmap.
+            </p>
+
+            <h3>Does the share link ever expire?</h3>
+            <p>
+                Currently the share link lives as long as the walklist does. Rotating the share
+                token (a "expire this link, generate a new one" button) is on the roadmap. If
+                you need to revoke a link today, contact us at
+                <a href="https://walklists.com/contact">walklists.com/contact</a>.
+            </p>
+
+            <p style="margin-top:32px"><a href="/">&larr; Back to Help Center home</a></p>
         </div>
         <div class="footer">
             <p>&copy; 2026 WalkLists by Scale Campaign. <a href="https://walklists.com/privacy">Privacy</a> &middot; <a href="https://walklists.com/terms">Terms</a> &middot; <a href="https://walklists.com/contact">Contact</a></p>
