@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CRM Integration | WalkLists Help</title>
-    <meta name="description" content="Two-way sync between WalkLists and HubSpot, Salesforce, and Pipedrive: push canvasser dispositions to your CRM and pull contacts back into walk lists.">
+    <title>Connect WalkLists to Your CRM | WalkLists Help</title>
+    <meta name="description" content="Send new contacts and door results from WalkLists into HubSpot, Salesforce, Google Sheets and thousands of apps — through Zapier, real-time webhooks, or the REST API.">
     <link rel="canonical" href="https://help.walklists.com/guides/crm-integration.html">
     <link rel="stylesheet" href="/css/style.css">
-    <meta property="og:title" content="CRM Integration | WalkLists Help">
-    <meta property="og:description" content="Two-way sync between WalkLists and HubSpot, Salesforce, and Pipedrive: push canvasser dispositions to your CRM and pull contacts back into walk lists.">
+    <meta property="og:title" content="Connect WalkLists to Your CRM | WalkLists Help">
+    <meta property="og:description" content="Send new contacts and door results from WalkLists into HubSpot, Salesforce, Google Sheets and thousands of apps — through Zapier, real-time webhooks, or the REST API.">
     <meta property="og:url" content="https://help.walklists.com/guides/crm-integration.html">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="WalkLists">
     <meta property="og:image" content="https://walklists.com/images/walklists.webp">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="CRM Integration | WalkLists Help">
-    <meta name="twitter:description" content="Two-way sync between WalkLists and HubSpot, Salesforce, and Pipedrive: push canvasser dispositions to your CRM and pull contacts back into walk lists.">
+    <meta name="twitter:title" content="Connect WalkLists to Your CRM | WalkLists Help">
+    <meta name="twitter:description" content="Send new contacts and door results from WalkLists into HubSpot, Salesforce, Google Sheets and thousands of apps — through Zapier, real-time webhooks, or the REST API.">
     <meta name="twitter:image" content="https://walklists.com/images/walklists.webp">
 </head>
 <body>
@@ -68,12 +68,87 @@
 
     <main class="main-content">
         <div class="content-area">
-            <h1>CRM Integration</h1>
-            <p class="subtitle">Connect WalkLists with HubSpot and other CRMs to sync contacts and interactions.</p>
+            <h1>Connect WalkLists to Your CRM</h1>
+            <p class="subtitle">Send new contacts and door results into HubSpot, Salesforce, Google Sheets and thousands of apps &mdash; the moment they happen, not a nightly export.</p>
 
-            <div class="callout-info">
-                <p>This guide is being written. Check back soon or <a href="https://walklists.com/contact">contact us</a> at walklists.com/contact for help.</p>
+            <p>WalkLists is the field layer on top of the tools you already run. There are three ways to move your door data into them, from no-code to fully custom. Most teams start with Zapier.</p>
+
+            <h2>Before you start: create an API key</h2>
+            <p>Every connection authenticates with an API key scoped to your organisation.</p>
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Open Account &rarr; API keys</h3>
+                    <p>In WalkLists, go to <a href="https://walklists.com/account/api-keys">Account &rarr; API keys</a> and create a key. You see it once, at creation &mdash; copy it somewhere safe. You can revoke it any time.</p>
+                </div>
             </div>
+            <div class="callout-info">
+                <p>API access is included on the Team and Local plans and above. Real-time webhooks are included on every plan, free ones too.</p>
+            </div>
+
+            <h2>Option 1 &mdash; Zapier (no code)</h2>
+            <p>Connect WalkLists to 7,000+ apps &mdash; HubSpot, Salesforce, Pipedrive, Google Sheets, Slack and more &mdash; without writing any code. Build a workflow in a few clicks and it runs on its own.</p>
+            <div class="callout-info">
+                <p><strong>Early access.</strong> The WalkLists Zapier integration works today and is available to customers now, while our public Zapier listing is being finalised. <a href="https://walklists.com/contact?topic=zapier">Ask us for your invite</a> and we&rsquo;ll get you connected the same day.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Request your invite</h3>
+                    <p>Tell us at <a href="https://walklists.com/contact?topic=zapier">walklists.com/contact</a> and we&rsquo;ll send the link that adds the WalkLists app to your Zapier account.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Connect your WalkLists account</h3>
+                    <p>In Zapier, choose WalkLists and paste the API key you created above.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Build a Zap</h3>
+                    <p>Pick a trigger &mdash; <em>New Contact</em>, <em>Updated Contact</em> or <em>New Door Activity</em> &mdash; and an action in your CRM. For example: <em>New Door Activity &rarr; Create a HubSpot deal</em>. Turn it on, and it runs on every knock.</p>
+                </div>
+            </div>
+
+            <h2>Option 2 &mdash; Real-time webhooks</h2>
+            <p>Have WalkLists POST each event to your own endpoint the instant it happens &mdash; no polling, no delay. This is the real-time backbone the other options are built on, and it&rsquo;s included on every plan.</p>
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Add an endpoint</h3>
+                    <p>Go to <a href="https://walklists.com/account/webhooks">Account &rarr; Webhooks</a> and add the URL you want events sent to. The signing secret is shown once, at that moment.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Verify the signature</h3>
+                    <p>Each delivery is signed with HMAC-SHA256 and a timestamp. Verify it before you trust the body &mdash; anyone can POST to your URL. The full recipe is in the <a href="https://walklists.com/developers/api">API reference</a>.</p>
+                </div>
+            </div>
+            <div class="callout-warning">
+                <p>WalkLists does not offer native two-way CRM sync (pushing WalkLists edits and pulling CRM edits automatically). Data flows out through webhooks and Zapier, and in through the API or a Zapier action &mdash; you choose which directions you need.</p>
+            </div>
+
+            <h2>Option 3 &mdash; REST API</h2>
+            <p>For custom integrations, read and write contacts, lists, campaigns and door activity directly. The API is versioned, rate-limited and documented, with a live reference and a Postman collection at <a href="https://walklists.com/developers/api">walklists.com/developers/api</a>.</p>
+
+            <h2>See it all in the app</h2>
+            <p>Everything above has a home inside WalkLists at <a href="https://walklists.com/account/automations">Account &rarr; Automations</a> &mdash; ready-made recipes, the connect steps, and a check of whether you already have an API key.</p>
+
+            <h2>Common recipes</h2>
+            <ul>
+                <li><strong>A canvasser marks a supporter</strong> &rarr; add them to your phone-bank list and send a thank-you.</li>
+                <li><strong>A rep logs a hot lead</strong> &rarr; create the deal in HubSpot or Salesforce and assign the follow-up.</li>
+                <li><strong>A door is marked &ldquo;callback&rdquo;</strong> &rarr; create a task with the time and notes in your CRM.</li>
+                <li><strong>A roof is inspected</strong> &rarr; open a job in JobNimbus with the address, photos and notes.</li>
+                <li><strong>A new contact is added</strong> &rarr; append a row to Google Sheets or push it to Mailchimp.</li>
+            </ul>
+
+            <p>Stuck on a connection? <a href="https://walklists.com/contact?topic=integrations">Tell us</a> &mdash; the gaps that block real integrations get priority.</p>
 
             <p><a href="/">&larr; Back to Help Center home</a></p>
         </div>
