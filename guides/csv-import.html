@@ -4,18 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CSV Import | WalkLists Help</title>
-    <meta name="description" content="Upload a CSV of voters or prospects, auto-map columns, geocode addresses with the CSV2GEO API, dedupe, and have route-ready walk lists in under five minutes.">
+    <meta name="description" content="Upload a CSV of voters or prospects, auto-map columns, create custom fields for anything you track, geocode addresses, dedupe, and have route-ready walk lists in minutes.">
     <link rel="canonical" href="https://help.walklists.com/guides/csv-import.html">
     <link rel="stylesheet" href="/css/style.css">
     <meta property="og:title" content="CSV Import | WalkLists Help">
-    <meta property="og:description" content="Upload a CSV of voters or prospects, auto-map columns, geocode addresses with the CSV2GEO API, dedupe, and have route-ready walk lists in under five minutes.">
+    <meta property="og:description" content="Upload a CSV of voters or prospects, auto-map columns, create custom fields for anything you track, geocode addresses, dedupe, and have route-ready walk lists in minutes.">
     <meta property="og:url" content="https://help.walklists.com/guides/csv-import.html">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="WalkLists">
     <meta property="og:image" content="https://walklists.com/images/walklists.webp">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="CSV Import | WalkLists Help">
-    <meta name="twitter:description" content="Upload a CSV of voters or prospects, auto-map columns, geocode addresses with the CSV2GEO API, dedupe, and have route-ready walk lists in under five minutes.">
+    <meta name="twitter:description" content="Upload a CSV of voters or prospects, auto-map columns, create custom fields for anything you track, geocode addresses, dedupe, and have route-ready walk lists in minutes.">
     <meta name="twitter:image" content="https://walklists.com/images/walklists.webp">
 </head>
 <body>
@@ -69,13 +69,99 @@
     <main class="main-content">
         <div class="content-area">
             <h1>CSV Import</h1>
-            <p class="subtitle">Upload contact lists, map columns, geocode addresses, and start canvassing.</p>
+            <p class="subtitle">Upload contacts, map columns, name your own custom fields, and have route-ready walk lists in minutes.</p>
 
-            <div class="callout-info">
-                <p>This guide is being written. Check back soon or <a href="https://walklists.com/contact">contact us</a> at walklists.com/contact for help.</p>
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Choose how you're adding contacts</h3>
+                    <p>From <strong>Contacts &rarr; Add Contacts</strong>, pick <strong>Upload File</strong> (CSV, XLSX, or XLS), <strong>Copy &amp; Paste</strong>, <strong>Google Sheets</strong>, <strong>Add Manually</strong>, <strong>Pin Drop</strong>, or <strong>Import CRM</strong>. The column-mapping step below is the same for Upload File, Copy &amp; Paste, and Google Sheets.</p>
+                </div>
             </div>
 
-            <p><a href="/">&larr; Back to Help Center home</a></p>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Map your columns</h3>
+                    <p>WalkLists auto-detects standard fields &mdash; name, address, phone, party, precinct, and more &mdash; and shows a confidence badge per column: <strong>green</strong> for an exact header match, <strong>yellow</strong> for a partial match worth a quick check, <strong>red</strong> for anything it couldn't guess at all. Review the yellow and red columns before continuing; everything left unmapped gets skipped.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Create a custom field for anything you track</h3>
+                    <p>If a column doesn't match a standard field &mdash; a turnout flag for a specific election, a donor tier, a volunteer note, anything specific to your file &mdash; open its dropdown and choose <strong>+ Create custom field&hellip;</strong>. Give it a real name (e.g. &ldquo;Voted 2024&rdquo;) and a type (Yes/No, Number, Category, Free text, or Date), and it's created immediately. From that moment it's a first-class field: usable in filters, shown as a column on your Contacts grid, and available to marker rules on the field map &mdash; under the name you gave it, everywhere it appears.</p>
+                    <p>You get up to 25 custom fields per organization. Made a typo, or want to rename one later? Go to <strong>Account &rarr; Custom Fields</strong> at any time &mdash; renaming only changes the label, never your contacts' data.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Handle duplicates</h3>
+                    <p>Pick what counts as a duplicate &mdash; same name + address (the default, most conservative match), or your own rule &mdash; and what happens when one's found: <strong>skip</strong> it, <strong>update</strong> the existing contact with any new fields, or <strong>create</strong> a duplicate anyway.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h3>Review &amp; import</h3>
+                    <p>WalkLists geocodes every address before finishing the import and shows you the results &mdash; matched address, accuracy, and any that failed. Use <strong>Include All</strong>, <strong>Exclude Failed</strong>, or <strong>High + Medium Only</strong> to decide which rows come in, then confirm.</p>
+                </div>
+            </div>
+
+            <div class="callout-info">
+                <p>Custom fields are metadata layered on top of your import &mdash; renaming or retyping one at <strong>Account &rarr; Custom Fields</strong> never touches the contacts you've already imported. There's nothing to re-upload.</p>
+            </div>
+
+            <h2>Filtering and sorting by your custom fields</h2>
+            <p>Once a custom field exists, it shows up in two places right away:</p>
+            <ul>
+                <li><strong>Contacts grid</strong> &mdash; toggle it on as a column to see its value per contact.</li>
+                <li><strong>Contact Lists &rarr; Create List &rarr; Filter Contacts</strong> &mdash; expand <strong>+ More filters</strong> and your custom fields appear in their own <strong>Custom Fields</strong> segment, separate from the built-in political fields.</li>
+            </ul>
+            <p>By default, checking two custom fields filters to contacts matching <strong>all</strong> of them &mdash; the same AND behavior as every other filter. Flip the segment's toggle to <strong>Match Any</strong> and it switches to OR just for that segment: check &ldquo;Voted 2024&rdquo; and &ldquo;Voted 2025&rdquo; under Match Any to find everyone who voted in <em>either</em> election, instead of only the intersection. Native filters like City and State are never affected by this toggle &mdash; only your own custom fields can opt into OR.</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Custom field type</th>
+                        <th>Use it for</th>
+                        <th>Filter control</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Yes/No</td>
+                        <td>Did they vote in a specific election, are they a homeowner, opted in, etc.</td>
+                        <td>Checkbox</td>
+                    </tr>
+                    <tr>
+                        <td>Number</td>
+                        <td>A score, a donation amount, a count</td>
+                        <td>Range</td>
+                    </tr>
+                    <tr>
+                        <td>Category</td>
+                        <td>A fixed set of values &mdash; a tier, a source, a segment</td>
+                        <td>Multi-select</td>
+                    </tr>
+                    <tr>
+                        <td>Free text / Date</td>
+                        <td>Notes, one-off identifiers, a specific date</td>
+                        <td>Text / date match</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>What's next?</h2>
+            <ul>
+                <li><a href="/guides/creating-walk-lists.html">Turn a filtered list into a walk list</a></li>
+                <li><a href="/guides/data-enrichment.html">Enrich your data with voter, property, and demographic info</a></li>
+                <li><a href="/guides/crm-integration.html">Push imported contacts to your CRM</a></li>
+            </ul>
         </div>
         <div class="footer">
             <p>&copy; 2026 WalkLists by Scale Campaign. <a href="https://walklists.com/privacy">Privacy</a> &middot; <a href="https://walklists.com/terms">Terms</a> &middot; <a href="https://walklists.com/contact">Contact</a></p>
