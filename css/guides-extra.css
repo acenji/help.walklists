@@ -45,3 +45,12 @@ ol.steps > li::before { content: counter(s); position: absolute; left: 0; top: 0
     .top-nav .logo img { height: 22px; width: auto; }
     .top-nav-links .btn-app { padding: 6px 12px; font-size: 13px; }
 }
+
+/* films: the same phone-shaped clips as the University course, self-hosted */
+.film { margin: 20px 0; }
+.film video { display: block; width: 100%; max-width: 300px; height: auto; border-radius: 16px; border: 1px solid var(--navy-200); box-shadow: 0 2px 10px rgba(15,23,42,.1); background: var(--navy-900); }
+.film figcaption { font-size: 14px; color: var(--navy-600); margin-top: 10px; max-width: 520px; }
+.film details { margin-top: 6px; }
+.film summary { cursor: pointer; color: var(--accent-600); font-size: 13px; }
+.film details p { font-size: 13px; line-height: 1.55; margin: 6px 0 0; }
+@media (max-width: 640px) { .film video { max-width: 100%; } }
