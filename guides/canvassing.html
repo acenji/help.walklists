@@ -4,18 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Canvassing | WalkLists Help</title>
-    <meta name="description" content="Door-to-door canvassing in WalkLists: GPS-traced routes, one-tap status logging at each door, offline-first sync, and live team coordination on a shared map.">
+    <meta name="description" content="Work a walk list in the WalkLists field app: list and map, log results at the door, undo, set callbacks, read the Buyer Score, track your shift, work with partners and canvass offline.">
     <link rel="canonical" href="https://help.walklists.com/guides/canvassing.html">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/guides-extra.css">
     <meta property="og:title" content="Canvassing | WalkLists Help">
-    <meta property="og:description" content="Door-to-door canvassing in WalkLists: GPS-traced routes, one-tap status logging at each door, offline-first sync, and live team coordination on a shared map.">
+    <meta property="og:description" content="Work a walk list in the WalkLists field app: list and map, log results at the door, undo, set callbacks, read the Buyer Score, track your shift, work with partners and canvass offline.">
     <meta property="og:url" content="https://help.walklists.com/guides/canvassing.html">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="WalkLists">
     <meta property="og:image" content="https://walklists.com/images/walklists.webp">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Canvassing | WalkLists Help">
-    <meta name="twitter:description" content="Door-to-door canvassing in WalkLists: GPS-traced routes, one-tap status logging at each door, offline-first sync, and live team coordination on a shared map.">
+    <meta name="twitter:description" content="Work a walk list in the WalkLists field app: list and map, log results at the door, undo, set callbacks, read the Buyer Score, track your shift, work with partners and canvass offline.">
     <meta name="twitter:image" content="https://walklists.com/images/walklists.webp">
 </head>
 <body>
@@ -47,6 +48,7 @@
             <a href="/guides/creating-walk-lists.html">Creating Walk Lists</a>
             <a href="/guides/canvassing.html" class="active">Canvassing</a>
             <a href="/guides/mobile-app.html">Mobile App</a>
+            <a href="/guides/field-deals.html">Field Deals</a>
             <a href="/guides/team-management.html">Team Management</a>
         </div>
         <div class="sidebar-section">
@@ -68,19 +70,121 @@
 
     <main class="main-content">
         <div class="content-area">
-            <h1>Canvassing</h1>
-            <p class="subtitle">GPS tracking, door-knock logging, and real-time team sync during canvassing.</p>
+<h1>Canvassing</h1>
+            <p class="subtitle">The door-to-door workflow, screen by screen: find the next door, log what happened, follow up and finish your shift.</p>
 
-            <div class="callout-info">
-                <p>This guide is being written. Check back soon or <a href="https://walklists.com/contact">contact us</a> at walklists.com/contact for help.</p>
+            <h2>The walk list screen</h2>
+            <p>Open a walk list and you see two tabs, <strong>List</strong> and <strong>Map</strong>. Below them are your routes (<strong>Route 1</strong>, <strong>Route 2</strong> and so on) and a button to <strong>Start shift</strong>.</p>
+<div class="shots">
+    <figure class="shot"><img src="/img/field-walklist-list.webp" data-full="/img/field-walklist-list-full.webp" data-zoom alt="The walk list in List view with a search box, sort chips and door cards showing result buttons"><figcaption><b>1.</b> List view: each door is a card with the result buttons ready to tap.</figcaption></figure>
+    <figure class="shot"><img src="/img/field-search-no-match.webp" data-full="/img/field-search-no-match-full.webp" data-zoom alt="The walk list after searching for text that matches no door"><figcaption><b>2.</b> Search by name or address. No match says so plainly.</figcaption></figure>
+</div>
+            <ul>
+                <li><strong>Search</strong> by name or address.</li>
+                <li><strong>Sort</strong> by <strong>Route</strong> (walking order), <strong>Nearest</strong> (needs your location) or <strong>Score</strong> (highest Buyer Score first, where your campaign uses it).</li>
+                <li>In the ranked view, tapping a door jumps to it on the map so you can navigate.</li>
+            </ul>
+
+            <h2 id="log-a-result-at-a-door">Log a result at a door</h2>
+            <ol class="steps">
+                <li><p>Find the door on the list, or tap its pin on the map to open the door sheet.</p></li>
+                <li><p>Tap the result that happened, for example <strong>Not home</strong>.</p></li>
+                <li><p>A message at the bottom confirms it (&ldquo;Logged: Not home&rdquo;) with an <strong>Undo</strong> button. Keep walking.</p></li>
+            </ol>
+            <p>The result buttons come from your campaign, so yours may be named differently from the ones in these pictures. If a campaign has none set, the app falls back to <strong>Yes</strong>, <strong>No</strong> and <strong>Not home</strong>. Your manager sets them up in the campaign's <a href="/guides/account-setup.html#field-view">Field View</a>.</p>
+<div class="shots">
+    <figure class="shot"><img src="/img/field-door-sheet-hot.webp" data-full="/img/field-door-sheet-hot-full.webp" data-zoom alt="The door sheet on the map for a household flagged as a hot prospect with its result buttons"><figcaption><b>1.</b> The door sheet. A hot prospect shows its score; tap it for details.</figcaption></figure>
+    <figure class="shot"><img src="/img/field-door-sheet-expanded.webp" data-full="/img/field-door-sheet-expanded-full.webp" data-zoom alt="The door sheet expanded to show photos and the deal and appointment buttons"><figcaption><b>2.</b> Pull the sheet up for notes, photos and deal tools.</figcaption></figure>
+</div>
+
+            <h3 id="change-or-undo-a-result">Change or undo a result</h3>
+            <p>Tapped the wrong button? Tap <strong>Undo</strong> in the message right away, or tap the correct result: the door changes to it ("Changed to Not home") and the message offers <strong>Undo</strong> to go back. Undo works for your own results from the last 24 hours. Undoing a door's very first result may not be available yet on every server; the app says so if it is not.</p>
+<div class="shots center">
+    <figure class="shot"><img src="/img/field-undo-toast.webp" data-full="/img/field-undo-toast-full.webp" data-zoom alt="The walk list with a dark message at the bottom reading Logged Not home with an Undo button"><figcaption><b>1.</b> The message that follows every result.</figcaption></figure>
+</div>
+
+            <h3>Notes and resident details</h3>
+            <p>Expand the door sheet to <strong>Add a note&hellip;</strong>, call or text the resident, and see details your organization has loaded, such as votes, whether they own the home, registration and precinct, and when the door was last knocked. If your campaign has survey questions, they appear here, and a question marked <strong>Answer this first</strong> needs an answer before you log the result.</p>
+
+            <h2 id="set-a-callback">Set a callback</h2>
+            <p>When someone asks you to come back, tap <strong>Callback</strong> on the door sheet and choose when:</p>
+            <ul>
+                <li><strong>In 1 hour</strong></li>
+                <li><strong>This evening (6 PM)</strong></li>
+                <li><strong>Tomorrow morning (9 AM)</strong></li>
+                <li><strong>Tomorrow evening (6 PM)</strong></li>
+                <li><strong>Pick date &amp; time&hellip;</strong> for any day in the next two weeks, between 8 AM and 8 PM. Times in the past are greyed out.</li>
+            </ul>
+<div class="shots">
+    <figure class="shot"><img src="/img/field-door-sheet-callback.webp" data-full="/img/field-door-sheet-callback-full.webp" data-zoom alt="The door sheet for a door with a scheduled callback, showing the callback time and a Cancel callback button"><figcaption><b>1.</b> A door with a callback shows the time and a way to cancel.</figcaption></figure>
+    <figure class="shot"><img src="/img/field-callback-chooser.webp" data-full="/img/field-callback-chooser-full.webp" data-zoom alt="The callback options: in 1 hour, this evening, tomorrow morning, tomorrow evening and pick date and time"><figcaption><b>2.</b> Quick choices for the usual follow-ups.</figcaption></figure>
+    <figure class="shot"><img src="/img/field-callback-time-picker.webp" data-full="/img/field-callback-time-picker-full.webp" data-zoom alt="The date and time picker with day chips and hourly time slots"><figcaption><b>3.</b> Or pick any day and hour.</figcaption></figure>
+</div>
+            <p>The phone reminds you at the due time ("Callback due"). Tap the clock button on the map to see <strong>Callbacks</strong>: overdue ones show how late they are, and each can be changed or cancelled. You can cancel your own callbacks from the last 24 hours (<strong>Cancel this callback?</strong>, <strong>Keep it</strong>).</p>
+<div class="shots">
+    <figure class="shot"><img src="/img/field-callbacks-agenda.webp" data-full="/img/field-callbacks-agenda-full.webp" data-zoom alt="The Callbacks list on the map with one callback and a Navigate button"><figcaption><b>1.</b> The Callbacks list.</figcaption></figure>
+    <figure class="shot"><img src="/img/field-cancel-callback.webp" data-full="/img/field-cancel-callback-full.webp" data-zoom alt="A confirmation asking whether to cancel the callback"><figcaption><b>2.</b> Cancelling asks first.</figcaption></figure>
+</div>
+
+            <h2>Use the map</h2>
+            <p>The <strong>Map</strong> tab shows your doors as pins. A white dot means the door is done. At low zoom, doors group into clusters: <strong>green</strong> means the area is cleared and <strong>amber</strong> means it is in progress. Several voters can share one door.</p>
+<div class="shots">
+    <figure class="shot"><img src="/img/field-map-buyer-score.webp" data-full="/img/field-map-buyer-score-full.webp" data-zoom alt="The map with pins coloured by Buyer Score and a door sheet open"><figcaption><b>1.</b> Pins coloured by Buyer Score.</figcaption></figure>
+    <figure class="shot"><img src="/img/field-map-menu.webp" data-full="/img/field-map-menu-full.webp" data-zoom alt="The map's More menu with Navigate route, Save offline and Info and legend"><figcaption><b>2.</b> The More menu: navigate the route, save the map offline, open the legend.</figcaption></figure>
+    <figure class="shot"><img src="/img/field-map-legend.webp" data-full="/img/field-map-legend-full.webp" data-zoom alt="The map legend explaining the pin colours"><figcaption><b>3.</b> The legend explains every colour.</figcaption></figure>
+</div>
+            <ul>
+                <li>The round buttons on the right: <strong>Center map on my location</strong>, the <strong>Nearest unvisited door</strong>, <strong>Callbacks</strong> and <strong>More map actions</strong>.</li>
+                <li><strong>Pin colours:</strong> choose <strong>Status</strong> (the result you logged), <strong>Buyer Score</strong> or <strong>Storm Risk</strong> where your campaign has them.</li>
+                <li><strong>Search this route&hellip;</strong> finds a door by name or address and opens it.</li>
+            </ul>
+
+            <h2>Navigate to the next door</h2>
+            <p>On the door sheet tap <strong>Navigate</strong> and choose <strong>Apple Maps</strong>, <strong>Google Maps</strong> or <strong>Waze</strong>; the app remembers your choice. For the short walk between doors, tap <strong>Walk</strong>: a compass arrow points the way ("Hold phone flat &bull; arrow = compass bearing"). Tap <strong>Done walking</strong> when you arrive.</p>
+<div class="shots">
+    <figure class="shot"><img src="/img/field-navigate-chooser.webp" data-full="/img/field-navigate-chooser-full.webp" data-zoom alt="The Navigate with chooser listing Apple Maps, Google Maps and Waze"><figcaption><b>1.</b> Pick your maps app.</figcaption></figure>
+    <figure class="shot"><img src="/img/field-walk-compass.webp" data-full="/img/field-walk-compass-full.webp" data-zoom alt="The walking compass with a large arrow pointing to the next door and the text You're here"><figcaption><b>2.</b> The walking compass.</figcaption></figure>
+</div>
+
+            <h2 id="the-buyer-score">The Buyer Score</h2>
+            <p>On sales campaigns (Sales, Roofing, Solar, Insurance), each door gets a <strong>Buyer Score</strong> from 0 to 100 that estimates how likely the household is to buy. Doors are <strong>Hot</strong> (70 and above), <strong>Warm</strong> (40 to 69) or <strong>Cold</strong>. Work the hot doors first to close more in a shift.</p>
+<div class="shots center">
+    <figure class="shot"><img src="/img/field-buyer-score-explainer.webp" data-full="/img/field-buyer-score-explainer-full.webp" data-zoom alt="The Buyer Score explainer listing what lifts this score, such as high income area and owner occupied"><figcaption><b>1.</b> Tap a score to see what lifts it.</figcaption></figure>
+</div>
+            <ul>
+                <li><strong>What it is built from:</strong> neighborhood income, home ownership, home value and, for roofing, storm and hail risk. It describes the neighborhood and the home, not the person.</li>
+                <li><strong>Storm risk</strong> is historical hail risk for the area: long-term exposure, not a recent storm.</li>
+                <li>A door with no strong signals says so: lower priority, but still worth a knock.</li>
+            </ul>
+
+            <h2 id="shifts">Track your shift</h2>
+            <p>Tap <strong>Start shift</strong> before you begin. The app counts, on this phone, the results you log until you end the shift. Tap the shift bar to see <strong>Shift in progress</strong>: doors, conversations, time and doors per hour. <strong>Keep going</strong> closes the sheet and <strong>End shift</strong> finishes it.</p>
+<div class="shots center">
+    <figure class="shot"><img src="/img/field-shift-summary.webp" data-full="/img/field-shift-summary-full.webp" data-zoom alt="The shift summary sheet showing doors, conversations and elapsed time with Keep going and End shift buttons"><figcaption><b>1.</b> The shift summary.</figcaption></figure>
+</div>
+            <div class="callout callout-note">
+                <div><p>The shift summary is counted on your phone from what you logged. It is not a server report: a result changed later, or logged on another device, is not reflected.</p></div>
             </div>
 
-            <p><a href="/">&larr; Back to Help Center home</a></p>
+            <h2>Partners and the leaderboard</h2>
+            <p>If your manager pairs two canvassers on a street, the map shows how many partners are on the route and which side is yours (<strong>Your split: ODD houses</strong> or <strong>EVEN houses</strong>). The door sheet warns you when a partner already knocked a door, so you do not knock it twice. You can hide yourself from partners in <a href="/guides/mobile-app.html">Settings</a>. Where your campaign has one, the rank pill (<strong>#1 of 3</strong>) opens the <strong>Leaderboard</strong> for the week.</p>
+<div class="shots center">
+    <figure class="shot"><img src="/img/field-leaderboard.webp" data-full="/img/field-leaderboard-full.webp" data-zoom alt="The weekly leaderboard listing reps with their deal counts and totals"><figcaption><b>1.</b> The weekly leaderboard.</figcaption></figure>
+</div>
+
+            <h2 id="work-offline">Work offline</h2>
+            <p>You can keep canvassing with no signal. Results, notes, callbacks and photos are saved on the phone and sent when the signal returns. A banner counts what is waiting; tap it to sync. Read more in <a href="/guides/mobile-app.html#work-offline">Mobile App</a>.</p>
+
+            <h2>Quick tips</h2>
+            <div class="callout callout-tip">
+                <div><p>Save the map offline before you leave good coverage. Turn on <strong>Keep screen on</strong> if the phone locks too often. Use <strong>Nearest</strong> to find the closest unvisited door when you lose your place.</p></div>
+            </div>
         </div>
         <div class="footer">
             <p>&copy; 2026 WalkLists by Scale Campaign. <a href="https://walklists.com/privacy">Privacy</a> &middot; <a href="https://walklists.com/terms">Terms</a> &middot; <a href="https://walklists.com/contact">Contact</a></p>
         </div>
     </main>
     <script src="/js/nav.js"></script>
+    <script src="/js/zoom.js" defer></script>
 </body>
 </html>

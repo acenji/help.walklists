@@ -4,18 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Creating Walk Lists | WalkLists Help</title>
-    <meta name="description" content="Build optimized walk lists from CSV uploads, voter file pulls, or the API. Filter by district or attribute, route-optimize, then assign to canvassers.">
+    <meta name="description" content="Create a campaign, choose the area, split doors into routes, set the walking order, generate a Field Map or PDF, share it with your team and manage walk lists after they are built.">
     <link rel="canonical" href="https://help.walklists.com/guides/creating-walk-lists.html">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/guides-extra.css">
     <meta property="og:title" content="Creating Walk Lists | WalkLists Help">
-    <meta property="og:description" content="Build optimized walk lists from CSV uploads, voter file pulls, or the API. Filter by district or attribute, route-optimize, then assign to canvassers.">
+    <meta property="og:description" content="Create a campaign, choose the area, split doors into routes, set the walking order, generate a Field Map or PDF, share it with your team and manage walk lists after they are built.">
     <meta property="og:url" content="https://help.walklists.com/guides/creating-walk-lists.html">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="WalkLists">
     <meta property="og:image" content="https://walklists.com/images/walklists.webp">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Creating Walk Lists | WalkLists Help">
-    <meta name="twitter:description" content="Build optimized walk lists from CSV uploads, voter file pulls, or the API. Filter by district or attribute, route-optimize, then assign to canvassers.">
+    <meta name="twitter:description" content="Create a campaign, choose the area, split doors into routes, set the walking order, generate a Field Map or PDF, share it with your team and manage walk lists after they are built.">
     <meta name="twitter:image" content="https://walklists.com/images/walklists.webp">
 </head>
 <body>
@@ -47,6 +48,7 @@
             <a href="/guides/creating-walk-lists.html" class="active">Creating Walk Lists</a>
             <a href="/guides/canvassing.html">Canvassing</a>
             <a href="/guides/mobile-app.html">Mobile App</a>
+            <a href="/guides/field-deals.html">Field Deals</a>
             <a href="/guides/team-management.html">Team Management</a>
         </div>
         <div class="sidebar-section">
@@ -68,19 +70,117 @@
 
     <main class="main-content">
         <div class="content-area">
-            <h1>Creating Walk Lists</h1>
-            <p class="subtitle">Build walk lists from CSV uploads, manual entry, or the WalkLists API.</p>
+<h1>Creating Walk Lists</h1>
+            <p class="subtitle">Turn your contacts into routes your team can walk: build the campaign, choose the area, split it, share it.</p>
 
-            <div class="callout-info">
-                <p>This guide is being written. Check back soon or <a href="https://walklists.com/contact">contact us</a> at walklists.com/contact for help.</p>
+            <h2>Before you start</h2>
+            <ul>
+                <li>Your contacts are imported and in at least one <strong>contact list</strong>. See <a href="/guides/csv-import.html">CSV Import</a>.</li>
+                <li>Addresses have been placed on the map. Contacts that could not be located, or only with low accuracy, are left out of the walk list. See <a href="/guides/data-enrichment.html#check-your-geocoding-quality">geocoding quality</a>.</li>
+                <li>You are an admin or manager. Canvassers cannot create campaigns or walk lists.</li>
+            </ul>
+
+            <h2 id="create-a-campaign">Create a campaign</h2>
+            <p>Walk lists live inside a campaign. In the left menu choose <strong>Campaigns</strong> and create one. The wizard has four steps:</p>
+            <ol class="steps">
+                <li><p><strong>Name &amp; Vertical.</strong> Give it a <strong>Campaign Name</strong> and choose a <strong>Vertical</strong>: Political, Sales, Roofing, Solar or Insurance.</p></li>
+                <li><p><strong>Select Lists.</strong> Tick one or more contact lists. Each card shows how many contacts it holds. With no lists yet you see <strong>No lists available</strong> and a link to import one.</p></li>
+                <li><p><strong>Settings.</strong> Default settings are used. You can change them after generation.</p></li>
+                <li><p><strong>Generate.</strong> Choose <strong>Generate Walk Lists</strong>.</p></li>
+            </ol>
+
+            <h2>Open the Generate page</h2>
+            <p>Open the campaign and choose its <strong>Walk Lists</strong> tab. It has two sections:</p>
+            <table>
+                <thead><tr><th>Output</th><th>Button</th><th>Best for</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Field Map</strong> (digital)</td><td><strong>Generate Field Map</strong></td><td>Teams on phones. Opens in a browser with nothing to install, or in the field app, with results saved as people knock.</td></tr>
+                    <tr><td><strong>PDF walk list</strong></td><td><strong>Generate PDF</strong></td><td>Paper clipboards. Choose a template, then print or download.</td></tr>
+                </tbody>
+            </table>
+            <p>The type is fixed once a draft exists ("Type locked"). To make the other kind, go back to the campaign and start a new one. The campaign's tabs are <strong>Settings</strong>, <strong>Team</strong>, <strong>Walk Lists</strong>, <strong>Field View</strong>, <strong>Results</strong> and <strong>Activity</strong>.</p>
+
+            <h2>Choose the area</h2>
+            <p>A map preview shows your doors. If the list spans several cities or ZIP codes, <strong>All cities</strong> and <strong>All zips</strong> menus let you narrow it. To draw your own area choose <strong>Manual lasso</strong> (<strong>Draw your own</strong>), and add more shapes with <strong>Draw another lasso</strong>. The readout (for example "Lasso &middot; 120 of 480") shows how many doors you captured.</p>
+            <div class="callout callout-note">
+                <div><p>The Generate page does not filter by voter attributes such as party or age. Do that when you build the contact list.</p></div>
             </div>
 
-            <p><a href="/">&larr; Back to Help Center home</a></p>
+            <h2 id="split-the-doors-into-routes">Split the doors into routes</h2>
+            <p>The question is <strong>How should the doors be split into routes?</strong> Pick a tile; each one shows the number of routes and the smallest to largest route:</p>
+            <ul>
+                <li><strong>Neighbourhoods</strong> keeps each route inside a neighbourhood, with no road crossings.</li>
+                <li><strong>Balanced sizes</strong> gives every route about the same number of doors.</li>
+                <li><strong>Walking time</strong> balances routes for tight schedules.</li>
+                <li><strong>Manual lasso</strong> lets you draw each route.</li>
+            </ul>
+            <p>Two sliders fine-tune it: <strong>Stops per route</strong> (5 to 100) and <strong>Total routes</strong>. They are hidden in Manual lasso mode. If you change an automatic split by hand, a <strong>Customised</strong> badge appears.</p>
+
+            <h3>Walking order inside each route</h3>
+            <p>WalkLists orders the doors inside each route automatically. Under <strong>Walking Algorithm</strong> you can choose:</p>
+            <ul>
+                <li><strong>Shortest walking distance</strong></li>
+                <li><strong>Street-by-street</strong> (the default)</li>
+                <li><strong>Pick-as-you-go</strong> (live; Field Map only)</li>
+                <li><strong>By address (A&rarr;Z)</strong></li>
+                <li><strong>Custom order</strong></li>
+            </ul>
+            <p>Under <strong>Within each route</strong>, <strong>Group By</strong> (with an optional second level) and <strong>Sort Order</strong> (<strong>Street Number (walking order)</strong>, <strong>Street Name, then Number</strong> or <strong>Last Name (alphabetical)</strong>) set how doors line up.</p>
+
+            <h3>Odd and even sides of the street</h3>
+            <p>Switch on <strong>Split odd/even street numbers</strong> to keep the two sides of a street apart. On a PDF it gives separate pages for each side. On a Field Map it pairs two canvassers on opposite sides of each street, and each phone shows which side is theirs.</p>
+
+            <h3>Fine-tune on the map</h3>
+            <p>After the automatic split you can still change it by hand: select a door and tap another route's marker to move it; <strong>Split route</strong>; <strong>Merge routes</strong>; <strong>Undo</strong> and <strong>Redo</strong> (&#8984;Z); drag to reorder doors inside a route; pin a start or end door; or delete a route. Door moves are applied when you click Generate.</p>
+
+            <h2>PDF options</h2>
+            <p>A PDF has Route, Cover, Layout and Footer settings. Start from <strong>Choose a Template</strong> or from scratch. You can set a <strong>Title</strong>, put an HQ number on every page (<strong>Campaign Phone</strong>, for canvasser safety), choose a cover page (per route, one cover, both or none), add an <strong>Assigned to</strong> line, and pick a density: Comfortable (about 15 to 20 rows a page), Compact (25 to 30) or Dense (35 to 45). Generation runs <strong>Preparing contacts</strong>, <strong>Clustering routes</strong>, <strong>Rendering PDF</strong>, then <strong>Download PDF</strong> and <strong>Print</strong> appear.</p>
+
+            <h2 id="share-the-field-map">Share the Field Map</h2>
+            <p>A Field Map starts as a draft. Choose <strong>Generate Field Map</strong> to make it live. Then you see <strong>Field map live!</strong> with the number of routes and stops, and an expiry date.</p>
+            <ul>
+                <li><strong>Copy field link</strong> gives a link that opens on any phone with no app install and no account.</li>
+                <li><strong>QR code</strong> lets people scan it from your screen or a printout.</li>
+                <li><strong>Expires in:</strong> 30 days, 90 days, 1 year or Never. The default is 90 days. Once it expires the link shows <strong>Share link expired</strong>.</li>
+                <li><strong>Rotate link</strong> replaces the link. Anyone with the old one needs the new one.</li>
+            </ul>
+            <div class="callout callout-note">
+                <div><p><strong>Good to know:</strong> the field app also lets a volunteer <a href="/guides/mobile-app.html#join-with-a-code">join with a 6-character code</a>. The web app does not show that code yet, so share the link or QR code. If you need codes for a campaign, contact support. Volunteers can see what a code looks like here: <a href="https://walklists.com/help/codes">What the code looks like, for volunteers</a>.</p></div>
+            </div>
+
+            <h2>Assign people</h2>
+            <p>Open the walk list's <strong>Assignees</strong> tab (<strong>Canvassers on this walklist</strong>). You have three ways to add people:</p>
+            <ul>
+                <li><strong>Assign existing member:</strong> search your organization by name or email. They receive an email and see the walk list in the app.</li>
+                <li><strong>Invite new:</strong> enter email, first and last name and choose <strong>Send invite</strong>. They get an email to set a password and join the walk list.</li>
+                <li><strong>Anonymous share link:</strong> copy the link. Anonymous canvassers can knock with it, with no account.</li>
+            </ul>
+            <p>An existing member must already be in your organization, or you are asked to invite them first. Remove someone with the &times; beside their name. Organization admins can assign anywhere; a campaign manager can assign only on their own campaigns. See <a href="/guides/team-management.html">Team Management</a>.</p>
+
+            <h2>Finalize, regenerate, clone and delete</h2>
+            <ul>
+                <li><strong>Finalize walk list</strong> (PDF): locks a ready PDF and counts it under the campaign's walk lists. A finalized list offers <strong>Unlock to edit &amp; regenerate</strong> and <strong>Regenerate with new settings</strong>.</li>
+                <li>Each row on the campaign tab has <strong>Rename</strong>, <strong>Clone</strong> (the copy is called "Name (copy)"), <strong>Delete</strong>, <strong>Copy share link</strong>, <strong>Show QR code</strong> and <strong>Preview as rep</strong>.</li>
+                <li><strong>Delete</strong> asks first ("Delete this walk list?"). Contact support to recover a deleted walk list within 30 days.</li>
+                <li>Statuses you will see: Draft, Generating, Ready and Locked.</li>
+            </ul>
+            <div class="callout callout-note">
+                <div><p><strong>Before you regenerate:</strong> check with support before regenerating or deleting a walk list that people are already working, so no logged results are affected.</p></div>
+            </div>
+
+            <h2>Good to know</h2>
+            <ul>
+                <li>Contacts whose address could not be placed, or only placed with low accuracy, are left out of the walk list. Fix them in the contact list and generate again.</li>
+                <li>If some contacts are far from the rest (more than 150 km), they are left out and a banner offers <strong>Include them and generate again</strong>.</li>
+                <li>If contacts are still being located, generation continues by itself when they finish.</li>
+                <li>A route holds between 5 and 100 stops.</li>
+            </ul>
         </div>
         <div class="footer">
             <p>&copy; 2026 WalkLists by Scale Campaign. <a href="https://walklists.com/privacy">Privacy</a> &middot; <a href="https://walklists.com/terms">Terms</a> &middot; <a href="https://walklists.com/contact">Contact</a></p>
         </div>
     </main>
     <script src="/js/nav.js"></script>
+    <script src="/js/zoom.js" defer></script>
 </body>
 </html>

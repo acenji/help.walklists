@@ -4,18 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Data Enrichment | WalkLists Help</title>
-    <meta name="description" content="Enrich any contact list with voter file data, property values, household demographics, and risk scores from 1,000+ APIs in the CSV2GEO data layer.">
+    <meta name="description" content="How WalkLists places your contacts on the map and what extra data it adds: geocoding and its quality levels, the Voter Universe, the Buyer Score, roof measurement and solar estimates.">
     <link rel="canonical" href="https://help.walklists.com/guides/data-enrichment.html">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/guides-extra.css">
     <meta property="og:title" content="Data Enrichment | WalkLists Help">
-    <meta property="og:description" content="Enrich any contact list with voter file data, property values, household demographics, and risk scores from 1,000+ APIs in the CSV2GEO data layer.">
+    <meta property="og:description" content="How WalkLists places your contacts on the map and what extra data it adds: geocoding and its quality levels, the Voter Universe, the Buyer Score, roof measurement and solar estimates.">
     <meta property="og:url" content="https://help.walklists.com/guides/data-enrichment.html">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="WalkLists">
     <meta property="og:image" content="https://walklists.com/images/walklists.webp">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Data Enrichment | WalkLists Help">
-    <meta name="twitter:description" content="Enrich any contact list with voter file data, property values, household demographics, and risk scores from 1,000+ APIs in the CSV2GEO data layer.">
+    <meta name="twitter:description" content="How WalkLists places your contacts on the map and what extra data it adds: geocoding and its quality levels, the Voter Universe, the Buyer Score, roof measurement and solar estimates.">
     <meta name="twitter:image" content="https://walklists.com/images/walklists.webp">
 </head>
 <body>
@@ -47,6 +48,7 @@
             <a href="/guides/creating-walk-lists.html">Creating Walk Lists</a>
             <a href="/guides/canvassing.html">Canvassing</a>
             <a href="/guides/mobile-app.html">Mobile App</a>
+            <a href="/guides/field-deals.html">Field Deals</a>
             <a href="/guides/team-management.html">Team Management</a>
         </div>
         <div class="sidebar-section">
@@ -68,19 +70,76 @@
 
     <main class="main-content">
         <div class="content-area">
-            <h1>Data Enrichment</h1>
-            <p class="subtitle">Enrich contacts with voter data, property values, demographics, and risk scores.</p>
+<h1>Data Enrichment</h1>
+            <p class="subtitle">How WalkLists puts your contacts on the map and what extra data it can add, with the limits of each.</p>
 
-            <div class="callout-info">
-                <p>This guide is being written. Check back soon or <a href="https://walklists.com/contact">contact us</a> at walklists.com/contact for help.</p>
+            <h2>What WalkLists adds to your data</h2>
+            <table>
+                <thead><tr><th>Feature</th><th>What it does</th><th>Who it is for</th></tr></thead>
+                <tbody>
+                    <tr><td><a href="#geocoding-turns-addresses-into-map-points">Geocoding</a></td><td>Turns each address into a map point</td><td>Every account</td></tr>
+                    <tr><td><a href="#voter-universe">Voter Universe</a></td><td>Brings registered voters in as new contacts</td><td>Cleared accounts</td></tr>
+                    <tr><td><a href="#the-buyer-score">Buyer Score</a></td><td>Ranks doors by how likely a household is to buy</td><td>Sales campaigns</td></tr>
+                    <tr><td><a href="#roof-and-solar">Roof measurement and solar estimate</a></td><td>Measures a roof and estimates solar from the door</td><td>Roofing and solar campaigns</td></tr>
+                </tbody>
+            </table>
+
+            <h2 id="geocoding-turns-addresses-into-map-points">Geocoding turns addresses into map points</h2>
+            <p>Geocoding happens automatically when you import contacts. The import wizard checks each address, and any contacts still waiting are located in the background. If address validation is not available at that moment, the wizard says so and lets you import anyway: "they will be geocoded in the background." Free geocoding is part of every plan, including the free Starter plan.</p>
+
+            <h3 id="check-your-geocoding-quality">Check your geocoding quality</h3>
+            <p>After an import, the quality dashboard sorts your contacts into five groups:</p>
+            <table>
+                <thead><tr><th>Group</th><th>Meaning</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Rooftop</strong></td><td>Accuracy 0.85 or higher: the pin sits on the building.</td></tr>
+                    <tr><td><strong>Point</strong></td><td>Accuracy 0.5 to 0.85: close, but not exactly on the building.</td></tr>
+                    <tr><td><strong>Range</strong></td><td>Low accuracy or a mismatch: the address matched a stretch of street.</td></tr>
+                    <tr><td><strong>Failed</strong></td><td>No match was found.</td></tr>
+                    <tr><td><strong>Skipped</strong></td><td>The contact had no address.</td></tr>
+                </tbody>
+            </table>
+            <p>Edit an address and geocode it again, or save a corrected text address without moving the pin. Your dashboard also flags work to do: <strong>N contacts need geocoding</strong> with a <strong>Geocode Now</strong> button, and <strong>N addresses couldn't be verified</strong>. Walk lists leave out contacts that failed or have low accuracy, so fix these before you generate. See <a href="/guides/creating-walk-lists.html">Creating Walk Lists</a>.</p>
+
+            <h2 id="voter-universe">Voter Universe</h2>
+            <p>Voter Universe lets a cleared account bring registered voters in as new contacts, filtered to your district. It is under <strong>Data &rarr; Voter Universe</strong> and is also an import source when you add contacts: "Registered voters by state, filtered to your district. No file needed."</p>
+            <ol class="steps">
+                <li><p>Choose a state and build an audience with the filters. You see a live count.</p></li>
+                <li><p>The voters are imported into a <strong>new contact list</strong>. They are not matched onto a list you already have.</p></li>
+                <li><p>Use that list in a campaign like any other. Voters count toward your plan's contact limit.</p></li>
+            </ol>
+            <h3>What you get, and what you do not</h3>
+            <ul>
+                <li><strong>You get:</strong> name, address, party where the state records it, and voting history. Phone and email only where the state's file has them. Each state differs: some have no party registration, some have no phone or email, and some have no age.</li>
+                <li><strong>You cannot:</strong> download the voter file. Voters are imported into your contacts only. Counts under 10 are shown as "&lt;10".</li>
+            </ul>
+            <h3>Availability</h3>
+            <ul>
+                <li>Voter Universe is switched on per organization. If it is not on for you yet, the page says "Voter Universe is not turned on for your account yet."</li>
+                <li>Which states you see depends on your account and your vertical. Some states' voter files can only be used for political campaigns, so field-sales accounts do not see them (they show "Political use only").</li>
+                <li>Before a state opens, you read and accept its terms: scroll to the end, tick each statement, and type your full legal name as your electronic signature. The terms can be signed only from the United States, and a VPN, proxy or private relay that hides your address will block it.</li>
+            </ul>
+            <div class="callout callout-note">
+                <div><p><strong>Not available yet:</strong> pricing and the import button. The page shows "Pay only for the voters you import" and a price that is still marked as a draft, and the import button says "Importing opens when voter data is cleared for your account." Do not plan a campaign around buying voters until your account shows the import open. Contact support to ask.</p></div>
             </div>
 
-            <p><a href="/">&larr; Back to Help Center home</a></p>
+            <h2 id="the-buyer-score">The Buyer Score</h2>
+            <p>On sales campaigns, every door gets a score from 0 to 100 estimating how likely the household is to buy, built from neighborhood income, home ownership, home value and, for roofing, storm and hail risk. Hot is 70 and above, Warm is 40 to 69, Cold is below that. The score describes the neighborhood and the home, not the person, and storm risk is historical hail risk, not a recent storm. Canvassers see it ranked in the field app: <a href="/guides/canvassing.html#the-buyer-score">The Buyer Score</a>.</p>
+
+            <h2 id="roof-and-solar">Roof measurement and solar estimate</h2>
+            <p>Canvassers on roofing and solar campaigns can measure a roof from the door: the app returns the building footprint and a satellite photo, and the rep chooses the pitch and waste. On solar campaigns the app can also estimate panels, savings and production. These are estimates to start a conversation, not an engineered design. Steps are in <a href="/guides/field-deals.html#measure-a-roof">Deals, Appointments &amp; Photos</a>.</p>
+
+            <h2>The campaign setting "Enable Data Enrichment"</h2>
+            <p>Campaign Settings &rarr; Targeting has a checkbox called <strong>Enable Data Enrichment (CSV2Geo)</strong>. Its help text says it fills in extra data on your contacts (demographics, property values, risk scores) from CSV2Geo's data sources, uses data credits, and should be left off when your import already has what you need.</p>
+            <div class="callout callout-note">
+                <div><p><strong>Not available yet:</strong> this checkbox is saved with the campaign but does not change anything yet, so do not rely on it to fill in contact details. <strong>Enable Lead Scoring</strong> beside it works the same way.</p></div>
+            </div>
         </div>
         <div class="footer">
             <p>&copy; 2026 WalkLists by Scale Campaign. <a href="https://walklists.com/privacy">Privacy</a> &middot; <a href="https://walklists.com/terms">Terms</a> &middot; <a href="https://walklists.com/contact">Contact</a></p>
         </div>
     </main>
     <script src="/js/nav.js"></script>
+    <script src="/js/zoom.js" defer></script>
 </body>
 </html>

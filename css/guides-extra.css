@@ -1,0 +1,47 @@
+/* Extra styles so the new guides sit inside the OLD Help look (same palette as style.css). Added 2026-11-07, preview only. */
+.content-area .subtitle { color: var(--navy-500); font-size: 17px; margin: 6px 0 20px; }
+.content-area h2 { margin: 34px 0 10px; color: var(--navy-900); }
+.content-area h3 { margin: 22px 0 8px; color: var(--navy-800); }
+.content-area p, .content-area li { margin: 8px 0; }
+.content-area ul, .content-area ol { padding-left: 22px; margin: 10px 0; }
+.content-area table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14px; }
+.content-area th { text-align: left; background: var(--navy-100); color: var(--navy-800); padding: 9px 12px; border: 1px solid var(--navy-200); }
+.content-area td { padding: 9px 12px; border: 1px solid var(--navy-200); vertical-align: top; }
+.content-area code, .content-area kbd { background: var(--navy-100); border: 1px solid var(--navy-200); border-radius: 4px; padding: 1px 6px; font-size: 13px; }
+ol.steps { list-style: none; counter-reset: s; padding-left: 0; }
+ol.steps > li { counter-increment: s; position: relative; padding-left: 44px; margin: 14px 0; }
+ol.steps > li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.callout-tip { background: #ecfdf5; border-left: 3px solid #10b981; }
+.callout-note { background: var(--navy-50); border-left: 3px solid var(--navy-400); }
+.callout-confirm { background: #fffbeb; border-left: 3px solid #f59e0b; }
+.callout > div > p { margin: 0; }
+.shots { display: flex; flex-wrap: wrap; gap: 18px; margin: 18px 0; align-items: flex-start; }
+.shots.center { justify-content: center; }
+.shot { margin: 0; width: 230px; }
+.shot img { width: 100%; height: auto; border: 1px solid var(--navy-200); border-radius: 14px; box-shadow: 0 2px 10px rgba(15,23,42,.08); display: block; }
+.shot figcaption { font-size: 13px; color: var(--navy-600); margin-top: 8px; line-height: 1.4; }
+.cards, .cards-grid { margin: 14px 0; }
+
+/* tap-to-zoom */
+#shot-zoom { position: fixed; inset: 0; z-index: 1000; background: rgba(15,23,42,.88); display: flex; align-items: center; justify-content: center; padding: 20px; cursor: zoom-out; }
+#shot-zoom img { max-height: 94vh; max-width: 94vw; border-radius: 18px; box-shadow: 0 10px 40px rgba(0,0,0,.5); background: #fff; }
+#shot-zoom button { position: absolute; top: 14px; right: 18px; width: 42px; height: 42px; border: 0; border-radius: 50%; background: #fff; color: var(--navy-900); font-size: 26px; line-height: 1; cursor: pointer; }
+/* phones: two screenshots per row, readable tables, no sideways scroll */
+@media (max-width: 640px) {
+    .shots { gap: 12px; }
+    .shot { width: calc(50% - 6px); }
+    .content-area table { display: block; overflow-x: auto; }
+    ol.steps > li { padding-left: 38px; }
+}
+@media print { .shots { break-inside: avoid; } .shot { width: 150px; } .top-nav, .sidebar, #shot-zoom { display: none !important; } .main-content { margin: 0 !important; } }
+.content-area a { color: var(--accent-600); }
+.content-area img { max-width: 100%; }
+.shot figcaption b { color: var(--navy-900); }
+/* small phones: a tidy top bar (the old one wrapped "Help Center" and cut off "API Reference") */
+@media (max-width: 520px) {
+    .top-nav { padding: 0 12px; }
+    .top-nav-links a:not(.btn-app) { display: none; }
+    .top-nav .logo span { font-size: 14px; white-space: nowrap; }
+    .top-nav .logo img { height: 22px; width: auto; }
+    .top-nav-links .btn-app { padding: 6px 12px; font-size: 13px; }
+}
