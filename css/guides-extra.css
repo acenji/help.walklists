@@ -37,6 +37,9 @@ ol.steps > li::before { content: counter(s); position: absolute; left: 0; top: 0
 .content-area a { color: var(--accent-600); }
 .content-area img { max-width: 100%; }
 .shot figcaption b { color: var(--navy-900); }
+/* wider pictures: a piece of a web screen or of the app, not a whole phone */
+.shot.shot-wide { width: 340px; }
+@media (max-width: 640px) { .shot.shot-wide { width: 100%; } }
 /* small phones: a tidy top bar (the old one wrapped "Help Center" and cut off "API Reference") */
 @media (max-width: 520px) {
     .top-nav { padding: 0 12px; }
