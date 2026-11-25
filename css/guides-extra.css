@@ -54,3 +54,6 @@ ol.steps > li::before { content: counter(s); position: absolute; left: 0; top: 0
 .film summary { cursor: pointer; color: var(--accent-600); font-size: 13px; }
 .film details p { font-size: 13px; line-height: 1.55; margin: 6px 0 0; }
 @media (max-width: 640px) { .film video { max-width: 100%; } }
+/* a film of the web screens is wide, not a phone */
+.film.film-wide video { max-width: 100%; }
+.film.film-wide figcaption { max-width: none; }
