@@ -40,6 +40,9 @@ ol.steps > li::before { content: counter(s); position: absolute; left: 0; top: 0
 /* wider pictures: a piece of a web screen or of the app, not a whole phone */
 .shot.shot-wide { width: 340px; }
 @media (max-width: 640px) { .shot.shot-wide { width: 100%; } }
+/* full width: a picture of a whole web screen section */
+.shot.shot-full { width: 100%; max-width: 760px; }
+@media print { .shot.shot-full { width: 100%; } }
 /* small phones: a tidy top bar (the old one wrapped "Help Center" and cut off "API Reference") */
 @media (max-width: 520px) {
     .top-nav { padding: 0 12px; }
